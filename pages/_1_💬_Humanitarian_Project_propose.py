@@ -7,6 +7,15 @@ from streamlit_folium import st_folium
 
 st.set_page_config(layout="wide")
 
+@st.cache_resource
+def init_connection():
+    return MongoClient("mongodb+srv://kuquanghuy:quanghuy123456@cluster0.6mzug.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+
+client = init_connection()
+
+db=client['EuthMappers_Geocomment']
+collection=db['EuthMappers_Geocomment']
+
 st.markdown("""
 
 <style>
@@ -131,8 +140,10 @@ def drawMap(popup,location,zoom):
     else:
         st.write('nothing is clicked')
 comment = st.text_input("Zoom to an area where you think suitable for the project then write down your comment. Finally hit Enter to submit", "")
-if comment:
+if comment and comment!="":
     st.write("✅You select the area at coordinate",str(st.session_state.location),'at the zoom of',str(st.session_state.zoom),'because of', comment)
+    post={'test':'test'}
+    collection.insert_one(post)
 a=drawMap(popup,st.session_state.location,st.session_state.zoom)
 
 
