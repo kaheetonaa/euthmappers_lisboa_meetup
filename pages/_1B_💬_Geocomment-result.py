@@ -3,6 +3,7 @@ import streamlit as st
 from pymongo import MongoClient
 import pandas as pd
 import geopandas as gpd
+from shapely import wkt
 
 st.set_page_config(layout="wide")
 
