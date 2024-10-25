@@ -77,9 +77,9 @@ map = folium.Map(
 for _, r in result_polygon.iterrows():
     # Without simplifying the representation of each borough,
     # the map might not be displayed
-    sim_geo = gpd.GeoSeries(r["geometry"]).simplify(tolerance=0.001)
+    sim_geo = gpd.GeoSeries(r["geometry"])#.simplify(tolerance=0.001)
     geo_j = sim_geo.to_json()
-    geo_j = folium.GeoJson(data=geo_j, style_function=lambda x: {"fillColor": "red","stroke-color":"red"})
+    geo_j = folium.GeoJson(data=geo_j, style_function=lambda x: {"fillColor": "red","strokeColor":"red"})
     folium.Popup(r["comment"]).add_to(geo_j)
     geo_j.add_to(map)
 
