@@ -1,9 +1,11 @@
-import leafmap.foliumap as leafmap
 import streamlit as st
 from pymongo import MongoClient
 import pandas as pd
 import geopandas as gpd
 from shapely import wkt
+import folium
+from folium.features import GeoJsonPopup
+from streamlit_folium import st_folium
 
 st.set_page_config(layout="wide")
 
@@ -68,9 +70,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-map = leafmap.Map()
-map.add_gdf(result_point,layer='GeoComment')
-
-map.to_streamlit(height=700)
+map = folium.Map(
+    location=location, zoom_start=zoom, max_zoom=21)
+result_point_json = folium.GeoJson(data=result_point)
+org_json.add_to(map)
 
 
