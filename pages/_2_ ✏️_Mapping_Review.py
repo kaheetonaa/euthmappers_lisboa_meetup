@@ -95,7 +95,7 @@ fg = folium.FeatureGroup(name="Parcels",control=True)
 fg = fg.add_child(building_json)
 fg = fg.add_child(highway_json)
 
-map.fit_bounds(map.get_bounds(), padding=(30, 30))
+
 
 st_folium(
             map,
