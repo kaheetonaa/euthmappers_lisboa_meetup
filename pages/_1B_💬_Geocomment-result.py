@@ -20,6 +20,7 @@ collection=db['EuthMappers_Geocomment']
 result_polygon=pd.DataFrame(list(collection.find().sort("_id", -1).limit(5)))
 
 result_polygon['Polygon']=gpd.GeoSeries.from_wkt(result_polygon['bounds'])
+result_polygon['Point']=gpd.GeoSeries.from_wkt(result_polygon['center'])
 result_polygon=gpd.GeoDataFrame(result_polygon,geometry=result_polygon['Polygon']).set_crs(epsg=4326)
 result_polygon
 
@@ -77,11 +78,14 @@ map = folium.Map(
 for _, r in result_polygon.iterrows():
     # Without simplifying the representation of each borough,
     # the map might not be displayed
-    sim_geo = gpd.GeoSeries(r["Polygon"])#.simplify(tolerance=0.001)
-    geo_j = sim_geo.to_json()
-    geo_j = folium.GeoJson(data=geo_j, style_function=lambda x: {"fillColor": "red","color":"red"})
-    folium.Popup(r["comment"]).add_to(geo_j)
-    geo_j.add_to(map)
+    pol = gpd.GeoSeries(r["Polygon"])#.simplify(tolerance=0.001)
+    pol_j = pol.to_json()
+    pol_j = folium.GeoJson(data=pol_j, style_function=lambda x: {"fillColor": "red","color":"red"})
+    folium.Popup(r["comment"]).add_to(pol_j)
+    poi_j=gpd.GeoSeries(r["Points"]).to_json()
+    poi_j= folium.GeoJson(data=poi_j})
+    pol_j.add_to(map)
+    poi_j.add_to(map)
 
 map.fit_bounds(map.get_bounds(), padding=(30, 30))
 
