@@ -83,7 +83,10 @@ for _, r in result_polygon.iterrows():
     pol_j = folium.GeoJson(data=pol_j, style_function=lambda x: {"fillColor": "red","color":"red"})
     folium.Popup(r["comment"]).add_to(pol_j)
     poi_j=gpd.GeoSeries(r["Point"]).to_json()
-    poi_j= folium.GeoJson(data=poi_j,marker=folium.Marker(icon=folium.Icon(icon='star')),style_function=lambda x: {"markerColor": "red"})
+    poi_j= folium.GeoJson(data=poi_j
+                        ,marker=folium.Marker(icon=folium.Icon(icon='star'))
+                        ,style_function=lambda x: {"markerColor": "red"}
+                        ,zoom_on_click=True)
     pol_j.add_to(map)
     poi_j.add_to(map)
 
