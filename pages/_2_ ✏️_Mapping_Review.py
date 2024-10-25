@@ -93,6 +93,8 @@ building_json.add_to(fg)
 
 folium.LayerControl().add_to(map)
 
+map.fit_bounds(map.get_bounds(), padding=(30, 30))
+
 st_folium(
             map,
             width="100%",
