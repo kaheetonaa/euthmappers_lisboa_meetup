@@ -146,6 +146,7 @@ if comment and comment!="":
     st.write("✅You select the area at coordinate",str(st.session_state.location),'at the zoom of',str(st.session_state.zoom),'because of', comment)
     post={'bounds':'POLYGON (('+str(st.session_state.bounds['_southWest']['lng'])+' '+str(st.session_state.bounds['_southWest']['lat'])+','+str(st.session_state.bounds['_southWest']['lng'])+' '+str(st.session_state.bounds['_northEast']['lat'])+','+str(st.session_state.bounds['_northEast']['lng'])+' '+str(st.session_state.bounds['_northEast']['lat'])+','+str(st.session_state.bounds['_northEast']['lng'])+' '+str(st.session_state.bounds['_southWest']['lat'])+','+str(st.session_state.bounds['_southWest']['lng'])+' '+str(st.session_state.bounds['_southWest']['lat'])+'))','comment':comment,'center':'POINT ('+str(st.session_state.location[0])+' '+str(st.session_state.location[1])+')','zoom':st.session_state.zoom}
     collection.insert_one(post)
+
 a=drawMap(popup,st.session_state.location,st.session_state.zoom)
 
 
