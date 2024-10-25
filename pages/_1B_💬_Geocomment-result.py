@@ -17,7 +17,7 @@ db=client['EuthMappers_Geocomment']
 collection=db['EuthMappers_Geocomment']
 result_point=pd.DataFrame(list(collection.find().sort("_id", -1).limit(5)))
 result_point['geometry']=gpd.GeoSeries.from_wkt(result_point['center'])
-result_point=gpd.Geodataframe(result_point,geometry=result_point['geometry'])
+#result_point=gpd.Geodataframe(result_point,geometry=result_point['geometry'])
 
 
 
