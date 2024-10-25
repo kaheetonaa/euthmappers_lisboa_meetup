@@ -1,5 +1,4 @@
-from streamlit_folium import st_folium
-import folium
+import leafmap
 import streamlit as st
 from pymongo import MongoClient
 import pandas as pd
@@ -62,12 +61,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-map = folium.Map(zoom_start=5, max_zoom=21)
+map = leafmap.Map()
 
-st_folium(
-            map,
-            width="100%",
-            height=600
-        )
+map.to_streamlit(height=700)
 
 
