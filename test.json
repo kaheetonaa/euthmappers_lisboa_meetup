@@ -3,11 +3,11 @@
 	}
 }
 
-st.session_state.bounds['_southWest']['lat']
-st.session_state.bounds['_southWest']['lng']
-st.session_state.bounds['_northEast']['lat']
+str(st.session_state.bounds['_southWest']['lat'])
+str(st.session_state.bounds['_southWest']['lng'])
+str(str(st.session_state.bounds['_northEast']['lng']))
 st.session_state.bounds['_northEast']['lng']
 
-'POLYGON (('+st.session_state.bounds['_southWest']['lat']+' '+st.session_state.bounds['_southWest']['lng']+','+st.session_state.bounds['_southWest']['lat']+' '+st.session_state.bounds['_northEast']['lng']+','+st.session_state.bounds['_northEast']['lat']+' '+st.session_state.bounds['_northEast']['lng']+','+st.session_state.bounds['_northEast']['lat']+' '+st.session_state.bounds['_southWest']['lng']+','+st.session_state.bounds['_southWest']['lat']+' '+st.session_state.bounds['_southWest']['lng']+'))'
+'POLYGON (('+str(st.session_state.bounds['_southWest']['lat'])+' '+str(st.session_state.bounds['_southWest']['lng'])+','+str(st.session_state.bounds['_southWest']['lat'])+' '+st.session_state.bounds['_northEast']['lng']+','+str(str(st.session_state.bounds['_northEast']['lng']))+' '+st.session_state.bounds['_northEast']['lng']+','+str(str(st.session_state.bounds['_northEast']['lng']))+' '+str(st.session_state.bounds['_southWest']['lng'])+','+str(st.session_state.bounds['_southWest']['lat'])+' '+str(st.session_state.bounds['_southWest']['lng'])+'))'
 
 POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))
