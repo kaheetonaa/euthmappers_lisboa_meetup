@@ -22,7 +22,6 @@ result_polygon=pd.DataFrame(list(collection.find().sort("_id", -1).limit(5)))
 result_polygon['Polygon']=gpd.GeoSeries.from_wkt(result_polygon['bounds'])
 result_polygon['Point']=gpd.GeoSeries.from_wkt(result_polygon['center'])
 result_polygon=gpd.GeoDataFrame(result_polygon,geometry=result_polygon['Polygon']).set_crs(epsg=4326)
-result_polygon
 
 
 
