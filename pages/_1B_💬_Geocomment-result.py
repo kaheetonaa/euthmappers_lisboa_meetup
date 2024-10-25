@@ -1,4 +1,4 @@
-import leafmap
+import leafmap.foliumap as leafmap
 import streamlit as st
 from pymongo import MongoClient
 import pandas as pd
