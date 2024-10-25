@@ -85,7 +85,6 @@ map = folium.Map(
 
 folium.TileLayer(name='ESRI',tiles='https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?blankTile=false',attr='esri',max_zoom=21,max_native_zoom=18,opacity=1).add_to(map)
 
-
 fg = folium.FeatureGroup(name="Parcels",control=True)
 fg = fg.add_child(building_json)
 fg = fg.add_child(highway_json)
