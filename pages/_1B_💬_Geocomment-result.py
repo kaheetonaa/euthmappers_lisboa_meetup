@@ -14,10 +14,11 @@ client = init_connection()
 
 db=client['EuthMappers_Geocomment']
 collection=db['EuthMappers_Geocomment']
-result=pd.DataFrame(list(collection.find().sort("_id", -1).limit(5)))
+result=list(collection.find().sort("_id", -1).limit(5)))
 result
-gdf = gpd.GeoDataFrame(data=result, geometry=result['center'])
-gdf.plot()
+
+
+
 
 
 st.markdown("""
