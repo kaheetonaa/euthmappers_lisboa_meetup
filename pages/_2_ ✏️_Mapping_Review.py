@@ -91,6 +91,8 @@ fg = folium.FeatureGroup(name="Icon collection", control=False).add_to(map)
 
 building_json.add_to(fg)
 
+folium.LayerControl().add_to(map)
+
 st_folium(
             map,
             width="100%",
