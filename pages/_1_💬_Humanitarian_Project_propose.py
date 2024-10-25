@@ -126,7 +126,7 @@ def drawMap(popup,location,zoom):
                                 style_function=style_function,
         popup=popup)
         org_json.add_to(map)
-    
+    map.fit_bounds(map.get_bounds(), padding=(30, 30))
     st_map= st_folium(
     map,
     width='100%',

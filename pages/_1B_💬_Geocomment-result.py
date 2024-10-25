@@ -83,6 +83,8 @@ for _, r in result_polygon.iterrows():
     folium.Popup(r["comment"]).add_to(geo_j)
     geo_j.add_to(map)
 
+map.fit_bounds(map.get_bounds(), padding=(30, 30))
+
 st_map= st_folium(
     map,
     width='100%',
