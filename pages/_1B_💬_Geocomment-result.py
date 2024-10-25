@@ -1,8 +1,18 @@
 from streamlit_folium import st_folium
 import folium
 import streamlit as st
+from pymongo import MongoClient
 
 st.set_page_config(layout="wide")
+
+@st.cache_resource
+def init_connection():
+    return MongoClient("mongodb+srv://kuquanghuy:quanghuy123456@cluster0.6mzug.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+
+client = init_connection()
+
+db=client['EuthMappers_Geocomment']
+collection=db['EuthMappers_Geocomment']
 
 st.markdown("""
 
