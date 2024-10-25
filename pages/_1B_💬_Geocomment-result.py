@@ -84,7 +84,8 @@ for _, r in result_polygon.iterrows():
 st_map= st_folium(
     map,
     width='100%',
-    height=600
+    height=600,
+    returned_objects=[]
 )
 
 
