@@ -81,12 +81,13 @@ for _, r in result_polygon.iterrows():
     pol = gpd.GeoSeries(r["Polygon"])#.simplify(tolerance=0.001)
     pol_j = pol.to_json()
     pol_j = folium.GeoJson(data=pol_j, style_function=lambda x: {"fillColor": "red","color":"red"})
-    folium.Popup(r["comment"]).add_to(pol_j)
+    
     poi_j=gpd.GeoSeries(r["Point"]).to_json()
     poi_j= folium.GeoJson(data=poi_j
                         ,marker=folium.Marker(icon=folium.Icon(icon='star'))
                         ,style_function=lambda x: {"markerColor": "red"}
                         ,zoom_on_click=True)
+    folium.Popup(r["comment"]).add_to(poi_j)
     pol_j.add_to(map)
     poi_j.add_to(map)
 
