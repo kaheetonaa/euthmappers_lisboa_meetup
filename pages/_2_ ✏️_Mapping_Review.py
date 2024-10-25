@@ -85,13 +85,11 @@ map = folium.Map(
 folium.TileLayer(name='ESRI',tiles='https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?blankTile=false',attr='esri',max_zoom=21,max_native_zoom=18,opacity=1).add_to(map)
 
 
-
+lc=folium.LayerControl().add_to(map)
 
 fg = folium.FeatureGroup(name="Icon collection", control=False).add_to(map)
 
 building_json.add_to(fg)
-
-folium.LayerControl(fg).add_to(map)
 
 map.fit_bounds(map.get_bounds(), padding=(30, 30))
 
