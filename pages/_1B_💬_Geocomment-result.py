@@ -15,7 +15,7 @@ client = init_connection()
 
 db=client['EuthMappers_Geocomment']
 collection=db['EuthMappers_Geocomment']
-result=list(collection.find().sort("_id", -1).limit(5))
+result=gpd.GeoDataframe(list(collection.find().sort("_id", -1).limit(5)))
 result
 
 
