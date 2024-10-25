@@ -88,4 +88,7 @@ st_map= st_folium(
     returned_objects=[]
 )
 
+if st.button('Refresh'):
+    #This would empty everything inside the container
+    st.empty()
 
