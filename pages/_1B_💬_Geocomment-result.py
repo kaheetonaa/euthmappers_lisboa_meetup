@@ -2,6 +2,7 @@ from streamlit_folium import st_folium
 import folium
 import streamlit as st
 from pymongo import MongoClient
+import pandas as pd
 
 st.set_page_config(layout="wide")
 
@@ -13,6 +14,8 @@ client = init_connection()
 
 db=client['EuthMappers_Geocomment']
 collection=db['EuthMappers_Geocomment']
+result=pd.DataFrame(list(collection.find().sort("_id", -1).limit(2)))
+result
 
 st.markdown("""
 
