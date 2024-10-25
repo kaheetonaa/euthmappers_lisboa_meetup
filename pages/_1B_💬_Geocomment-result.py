@@ -71,8 +71,14 @@ st.markdown("""
 
 
 map = folium.Map(
-    location=location, zoom_start=zoom, max_zoom=21)
+    location=[0,0], zoom_start=zoom, max_zoom=21)
 result_point_json = folium.GeoJson(data=result_point)
 org_json.add_to(map)
+
+st_map= st_folium(
+    map,
+    width='100%',
+    height=600
+)
 
 
