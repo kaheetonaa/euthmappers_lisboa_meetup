@@ -17,11 +17,11 @@ client = init_connection()
 
 db=client['EuthMappers_Geocomment']
 collection=db['EuthMappers_Geocomment']
-result_point=pd.DataFrame(list(collection.find().sort("_id", -1).limit(5)))
+result_polygon=pd.DataFrame(list(collection.find().sort("_id", -1).limit(5)))
 
-result_point['Coordinate']=gpd.GeoSeries.from_wkt(result_point['center'])
-result_point=gpd.GeoDataFrame(result_point,geometry=result_point['Coordinate']).set_crs(epsg=4326)
-result_point
+result_polygon['Polygon']=gpd.GeoSeries.from_wkt(result_polygon['bounds'])
+result_polygon=gpd.GeoDataFrame(result_polygon,geometry=result_polygon['Polygon']).set_crs(epsg=4326)
+result_polygon
 
 
 
@@ -72,8 +72,8 @@ st.markdown("""
 
 map = folium.Map(
     location=[0,0], zoom_start=5, max_zoom=21)
-#result_point_json = folium.GeoJson(data=result_point)
-#org_json.add_to(map)
+result_polygon_json = folium.GeoJson(data=result_polygon)
+org_json.add_to(map)
 
 st_map= st_folium(
     map,
