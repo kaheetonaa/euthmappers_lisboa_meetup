@@ -79,11 +79,6 @@ building_json = folium.GeoJson(data=building, style_function=lambda _x: building
 highway_json = folium.GeoJson(data=highway, style_function=lambda _x: highway_style,popup=highway_popup)
 
 
-#If btn is pressed or True
-if st.button('Refresh'):
-    #This would empty everything inside the container
-    st.empty()
-
 map = folium.Map(
     location=START_LOCATION, zoom_start=START_ZOOM, max_zoom=21
 )
@@ -95,7 +90,7 @@ fg = folium.FeatureGroup(name="Parcels",control=True)
 fg = fg.add_child(building_json)
 fg = fg.add_child(highway_json)
 
-
+map.fit_bounds(map.get_bounds(), padding=(30, 30))
 
 st_folium(
             map,
@@ -104,6 +99,11 @@ st_folium(
             feature_group_to_add=fg,
             returned_objects=[]
 )
+
+#If btn is pressed or True
+if st.button('Refresh'):
+    #This would empty everything inside the container
+    st.empty()
 
 
 
