@@ -1,0 +1,13 @@
+{'_southWest': {'lat': -4.434044005032582, 'lng': 0.0439453125
+	}, '_northEast': {'lat': 21.4121622297254, 'lng': 30.717773437500004
+	}
+}
+
+st.session_state.bounds['_southWest']['lat']
+st.session_state.bounds['_southWest']['lng']
+st.session_state.bounds['_northEast']['lat']
+st.session_state.bounds['_northEast']['lng']
+
+'POLYGON (('+st.session_state.bounds['_southWest']['lat']+' '+st.session_state.bounds['_southWest']['lng']+','+st.session_state.bounds['_southWest']['lat']+' '+st.session_state.bounds['_northEast']['lng']+','+st.session_state.bounds['_northEast']['lat']+' '+st.session_state.bounds['_northEast']['lng']+','+st.session_state.bounds['_northEast']['lat']+' '+st.session_state.bounds['_southWest']['lng']+','+st.session_state.bounds['_southWest']['lat']+' '+st.session_state.bounds['_southWest']['lng']+'))'
+
+POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))
