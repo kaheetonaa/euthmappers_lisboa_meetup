@@ -19,7 +19,6 @@ result_point=pd.DataFrame(list(collection.find().sort("_id", -1).limit(5)))
 result_point['center'][0]
 result_point['Coordinate']=gpd.GeoSeries.from_wkt(result_point['center'])
 result_point=gpd.GeoDataFrame(result_point,geometry=result_point['Coordinate'])
-result_point.plot()
 
 
 
