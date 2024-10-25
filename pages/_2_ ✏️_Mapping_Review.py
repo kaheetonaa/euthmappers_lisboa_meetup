@@ -78,18 +78,14 @@ highway_popup = GeoJsonPopup(
 building_json = folium.GeoJson(data=building, style_function=lambda _x: building_style,popup=building_popup)
 highway_json = folium.GeoJson(data=highway, style_function=lambda _x: highway_style,popup=highway_popup)
 
-
 map = folium.Map(
     location=START_LOCATION, zoom_start=START_ZOOM, max_zoom=21
 )
 
 folium.TileLayer(name='ESRI',tiles='https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?blankTile=false',attr='esri',max_zoom=21,max_native_zoom=18,opacity=1).add_to(map)
 
-fg = folium.FeatureGroup(name="Parcels",control=True)
-fg = fg.add_child(building_json)
-fg = fg.add_child(highway_json)
 
-map.fit_bounds(map.get_bounds(), padding=(30, 30))
+building_json.add_to(map)
 
 st_folium(
             map,
@@ -99,4 +95,9 @@ st_folium(
             returned_objects=[]
 )
 
+
+#If btn is pressed or True
+if st.button('Refresh'):
+    #This would empty everything inside the container
+    st.empty()
 
