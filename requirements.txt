@@ -8,3 +8,4 @@ osmium
 folium
 streamlit_folium
 pandas
+pymongo[srv]

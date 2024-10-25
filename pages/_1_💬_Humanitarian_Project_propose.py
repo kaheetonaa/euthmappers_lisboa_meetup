@@ -4,6 +4,8 @@ import geopandas as gpd
 import folium
 from folium.features import GeoJsonPopup
 from streamlit_folium import st_folium
+from pymongo import MongoClient
+
 
 st.set_page_config(layout="wide")
 
