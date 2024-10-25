@@ -91,7 +91,7 @@ fg = folium.FeatureGroup(name="Icon collection", control=False).add_to(map)
 
 building_json.add_to(fg)
 
-folium.LayerControl().add_to(map)
+folium.LayerControl(fg).add_to(map)
 
 map.fit_bounds(map.get_bounds(), padding=(30, 30))
 
