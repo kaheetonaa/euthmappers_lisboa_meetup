@@ -15,8 +15,9 @@ client = init_connection()
 
 db=client['EuthMappers_Geocomment']
 collection=db['EuthMappers_Geocomment']
-result=gpd.GeoDataFrame(list(collection.find().sort("_id", -1).limit(5)))
-result
+result_point=gpd.GeoDataFrame(list(collection.find().sort("_id", -1).limit(5)))
+result_point['geometry']=gpd.GeoSeries.from_wkt(gpd['center'])
+result.plot()
 
 
 
