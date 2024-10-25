@@ -2,6 +2,7 @@ import leafmap.foliumap as leafmap
 import streamlit as st
 from pymongo import MongoClient
 import pandas as pd
+import geopandas as gpd
 
 st.set_page_config(layout="wide")
 
@@ -15,7 +16,7 @@ db=client['EuthMappers_Geocomment']
 collection=db['EuthMappers_Geocomment']
 result=pd.DataFrame(list(collection.find().sort("_id", -1).limit(5)))
 result
-gdf = geopandas.GeoDataFrame(data=result, geometry=result['center'])
+gdf = gpd.GeoDataFrame(data=result, geometry=result['center'])
 gdf.plot()
 
 
