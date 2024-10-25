@@ -99,10 +99,6 @@ st_folium(
             returned_objects=[]
 )
 
-#If btn is pressed or True
-if st.button('Refresh'):
-    #This would empty everything inside the container
-    st.empty()
 
 
 
