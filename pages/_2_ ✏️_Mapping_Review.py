@@ -96,8 +96,7 @@ st_folium(
             width="100%",
             height=600,
             feature_group_to_add=fg,
+            returned_objects=[]
 )
-
-
 
 
