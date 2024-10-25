@@ -84,7 +84,7 @@ for _, r in result_polygon.iterrows():
     
     poi_j=gpd.GeoSeries(r["Point"]).to_json()
     poi_j= folium.GeoJson(data=poi_j
-                        ,marker=folium.Marker(icon=folium.Icon(icon='earth-africa'))
+                        ,marker=folium.Marker(icon=folium.Icon(icon='earth'))
                         ,style_function=lambda x: {"markerColor": "red"}
                         ,zoom_on_click=True)
     folium.Popup(r["comment"]).add_to(poi_j)
