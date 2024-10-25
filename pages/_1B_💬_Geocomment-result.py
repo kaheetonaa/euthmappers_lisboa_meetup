@@ -68,7 +68,9 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
-
+if st.button('Refresh'):
+    #This would empty everything inside the container
+    st.empty()
 
 map = folium.Map(
     location=[0,0], zoom_start=5, max_zoom=21)
@@ -88,7 +90,5 @@ st_map= st_folium(
     returned_objects=[]
 )
 
-if st.button('Refresh'):
-    #This would empty everything inside the container
-    st.empty()
+
 
