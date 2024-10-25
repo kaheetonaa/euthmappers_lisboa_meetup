@@ -78,6 +78,12 @@ highway_popup = GeoJsonPopup(
 building_json = folium.GeoJson(data=building, style_function=lambda _x: building_style,popup=building_popup)
 highway_json = folium.GeoJson(data=highway, style_function=lambda _x: highway_style,popup=highway_popup)
 
+
+#If btn is pressed or True
+if st.button('Refresh'):
+    #This would empty everything inside the container
+    st.empty()
+
 map = folium.Map(
     location=START_LOCATION, zoom_start=START_ZOOM, max_zoom=21
 )
@@ -100,8 +106,4 @@ st_folium(
 )
 
 
-#If btn is pressed or True
-if st.button('Refresh'):
-    #This would empty everything inside the container
-    st.empty()
 
