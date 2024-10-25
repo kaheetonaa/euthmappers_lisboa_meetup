@@ -85,8 +85,11 @@ map = folium.Map(
 folium.TileLayer(name='ESRI',tiles='https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?blankTile=false',attr='esri',max_zoom=21,max_native_zoom=18,opacity=1).add_to(map)
 
 
-building_json.add_to(map,layer='building')
-highway_json.add_to(map,layer='highway')
+
+
+fg = folium.FeatureGroup(name="Icon collection", control=False).add_to(map)
+
+building_json.add_to(fg)
 
 st_folium(
             map,
