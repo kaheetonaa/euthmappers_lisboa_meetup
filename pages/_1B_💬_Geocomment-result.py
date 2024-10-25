@@ -70,6 +70,7 @@ st.markdown("""
 
 
 map = leafmap.Map()
+map.add_gdf(result_point,layer='GeoComment')
 
 map.to_streamlit(height=700)
 
