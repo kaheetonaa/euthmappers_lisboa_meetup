@@ -85,7 +85,8 @@ map = folium.Map(
 folium.TileLayer(name='ESRI',tiles='https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?blankTile=false',attr='esri',max_zoom=21,max_native_zoom=18,opacity=1).add_to(map)
 
 
-building_json.add_to(map)
+building_json.add_to(map,layer='building')
+highway_json.add_to(map,layer='highway')
 
 st_folium(
             map,
