@@ -1,6 +1,6 @@
 import streamlit as st
 import qrcode
-from PIL import image
+from Pillow import image
 
 st.set_page_config(layout="wide")
 st.markdown("""
