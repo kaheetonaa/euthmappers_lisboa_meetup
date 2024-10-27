@@ -2,15 +2,55 @@ import streamlit as st
 from PIL import Image
 from qrcode.image.styledpil import StyledPilImage
 from qrcode.image.styles.colormasks import HorizontalGradiantColorMask
+st.set_page_config(layout="wide")
+st.markdown("""
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Comfortaa:wght@100&display=swap'); 
+
+    html, body, h1,h2,h3,p{
+        font-family: 'Comfortaa', sans-serif; 
+        
+    }
+    div[data-baseweb="select"] > div {
+    background-color: #62cbec;
+            color:white;
+            font-family: 'Comfortaa', sans-serif;
+    }
+
+    body{
+        font-size: 18px;
+    }
+
+    [role=radiogroup]{
+        gap: 1rem;
+    }
+    h1 {
+        text-align: center
+    }
+    h2 {
+        text-align: center
+    }
+    h3 {
+        text-align: center
+    }
+    
+    div[data-testid='stAppViewBlockContainer']{
+        background-color: #62cbec10;
+    }
+            .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+        width:200px;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 st.title('📋EUthMappers Humanitarian report and workshop cheatsheet')
 
-st.set_page_config(
-    page_title="Cheatsheet",
-    page_icon="📋",
-    layout="centered",
-    initial_sidebar_state="auto",
-)
+
 
 def generate_qrcode(url):
     qr = qrcode.QRCode(
