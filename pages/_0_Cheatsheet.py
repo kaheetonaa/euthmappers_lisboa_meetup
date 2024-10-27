@@ -27,7 +27,7 @@ st.markdown("""
         gap: 1rem;
     }
     h1 {
-        text-align: center
+        text-align: center;
         color:#62cbec;
     }
     h2 {
