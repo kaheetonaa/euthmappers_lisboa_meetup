@@ -52,7 +52,7 @@ st.markdown("""
 
 st.title('📋EUthMappers Humanitarian report and workshop cheatsheet')
 
-
+generated_qrcodes_path = "generated_qrcodes/"
 
 def generate_qrcode(url):
     qr = qrcode.QRCode(
