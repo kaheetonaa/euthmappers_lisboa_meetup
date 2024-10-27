@@ -43,5 +43,5 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
-st.write('welcome to euthmapper report')
+st.title('welcome to euthmapper report')
 
