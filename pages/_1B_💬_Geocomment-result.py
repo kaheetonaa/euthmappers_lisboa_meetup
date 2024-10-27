@@ -74,6 +74,10 @@ if st.button('Refresh'):
 
 map = folium.Map(
     location=[0,0], zoom_start=5, max_zoom=21)
+<<<<<<< HEAD
+result_point_json = folium.GeoJson(result_point)
+org_json.add_to(map)
+=======
 for _, r in result_polygon.iterrows():
     # Without simplifying the representation of each borough,
     # the map might not be displayed
@@ -89,6 +93,7 @@ for _, r in result_polygon.iterrows():
     folium.Popup(r["comment"]).add_to(poi_j)
     pol_j.add_to(map)
     poi_j.add_to(map)
+>>>>>>> 61fb3825f57cef74adca7e8103fc313a061a53fb
 
 map.fit_bounds(map.get_bounds(), padding=(30, 30))
 
