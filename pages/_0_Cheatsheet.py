@@ -69,6 +69,9 @@ def generate_qr_code(url, fill_color, bg_color):
     img_bytes = img_buffer.getvalue()
     return st.image(img_bytes)
 
+st.header('📉 The result of the two workshops')
+qr_img = generate_qr_code('https://result-euthmappersquizz.streamlit.app/?ws=0', '#000000', '#FFFFFF00')
+st.markdown("""</li>""",unsafe_allow_html=True)
 st.header('📉 The result of the workshop on 03/10/2024')
 qr_img = generate_qr_code('https://result-euthmappersquizz.streamlit.app/?ws=1', '#000000', '#FFFFFF00')
 st.markdown("""</li>""",unsafe_allow_html=True)
