@@ -3,7 +3,7 @@ import qrcode
 import io
 from PIL import Image
 
-st.set_page_config(layout="wide")
+#st.set_page_config(layout="wide")
 st.markdown("""
 
 <style>
@@ -69,8 +69,6 @@ def generate_qr_code(url, fill_color, bg_color):
     img_bytes = img_buffer.getvalue()
     return st.image(img_bytes)
 
-st.markdown("""<ul>""",unsafe_allow_html=True)
-st.markdown("""<li>""",unsafe_allow_html=True)
 st.header('📉 The result of the workshop on 03/10/2024')
 qr_img = generate_qr_code('https://result-euthmappersquizz.streamlit.app/?ws=1', '#000000', '#FFFFFF00')
 st.markdown("""</li>""",unsafe_allow_html=True)
@@ -90,4 +88,3 @@ st.header('📉 Tasking manager demo project')
 qr_img = generate_qr_code('https://tasks.hotosm.org/projects/17833', '#000000', '#FFFFFF00')
 st.header('📉 Demo project review')
 qr_img = generate_qr_code('https://tasks.hotosm.org/projects/17833', '#000000', '#FFFFFF00')
-st.markdown("""</ul>""",unsafe_allow_html=True)
