@@ -56,16 +56,15 @@ def generate_qr_code(url, fill_color, bg_color):
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_H,
-        box_size=10,
+        box_size=8,
         border=4
     )
     qr.add_data(url)
     qr.make(fit=True)
     img = qr.make_image(fill_color=fill_color, back_color=bg_color)
-    return img
+    img_buffer = io.BytesIO()
+    img.save(img_buffer, format="PNG")
+    img_bytes = img_buffer.getvalue()
+    return st.image(img)
 
 qr_img = generate_qr_code('google.com', '#FF0000', '#FFFFFF')
-img_buffer = io.BytesIO()
-qr_img.save(img_buffer, format="PNG")
-img_bytes = img_buffer.getvalue()
-st.image(img_bytes)
