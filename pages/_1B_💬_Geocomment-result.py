@@ -6,6 +6,8 @@ from shapely import wkt
 import folium
 from folium.features import GeoJsonPopup
 from streamlit_folium import st_folium
+from fpdf import FPDF
+import base64
 
 st.set_page_config(layout="wide")
 
@@ -99,5 +101,16 @@ st_map= st_folium(
     returned_objects=[]
 )
 
+export_as_pdf = st.button("Export Report")
+
+if export_as_pdf:
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font('Arial', 'B', 16)
+    pdf.cell(40, 10, report_text)
+    
+    html = create_download_link(pdf.output(dest="S").encode("latin-1"), "test")
+
+    st.markdown(html, unsafe_allow_html=True)
 
 
