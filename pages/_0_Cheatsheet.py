@@ -37,7 +37,7 @@ st.markdown("""
     }
     
     div[data-testid='stAppViewBlockContainer']{
-        background-color: #62cbec50;
+        background-color: #62cbec10;
     }
             .center {
     display: block;
@@ -67,4 +67,4 @@ def generate_qr_code(url, fill_color, bg_color):
     img_bytes = img_buffer.getvalue()
     return st.image(img_bytes)
 
-qr_img = generate_qr_code('google.com', 'black', '#FFFFFF')
+qr_img = generate_qr_code('google.com', '#62cbec', '#FFFFFF00')
