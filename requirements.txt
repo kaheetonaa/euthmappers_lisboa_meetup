@@ -10,6 +10,3 @@ streamlit_folium
 pandas
 pymongo[srv]
 shapely
-qrcode
-Pillow
-datetime
