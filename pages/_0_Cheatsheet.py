@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import qrcode
 from qrcode.image.styledpil import StyledPilImage
 from qrcode.image.styles.colormasks import HorizontalGradiantColorMask
 st.set_page_config(layout="wide")
