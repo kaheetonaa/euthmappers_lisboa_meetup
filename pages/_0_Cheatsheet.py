@@ -20,7 +20,7 @@ st.markdown("""
     }
 
     body{
-        font-size: 24px;
+        font-size: 18px;
     }
 
     [role=radiogroup]{
@@ -31,7 +31,7 @@ st.markdown("""
         color:#62cbec;
     }
     h2 {
-        text-align: center
+        text-align: left;
     }
     h3 {
         text-align: center
