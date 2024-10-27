@@ -65,6 +65,6 @@ def generate_qr_code(url, fill_color, bg_color):
     img_buffer = io.BytesIO()
     img.save(img_buffer, format="PNG")
     img_bytes = img_buffer.getvalue()
-    return st.image(img)
+    return st.image(img_bytes)
 
 qr_img = generate_qr_code('google.com', '#FF0000', '#FFFFFF')
