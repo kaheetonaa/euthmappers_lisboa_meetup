@@ -31,7 +31,7 @@ st.markdown("""
         color:#62cbec;
     }
     h2 {
-        font-size: 36px;
+        font-size: 24px;
         text-align: left;
     }
     h3 {
