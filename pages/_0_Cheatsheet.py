@@ -77,6 +77,8 @@ qr_img = generate_qr_code('https://result-euthmappersquizz.streamlit.app/?ws=1',
 st.markdown("""</li>""",unsafe_allow_html=True)
 st.header('📉 The result of the workshop on 09/10/2024')
 qr_img = generate_qr_code('https://result-euthmappersquizz.streamlit.app/?ws=2', '#000000', '#FFFFFF00')
+st.header('💬 Workshop site')
+qr_img = generate_qr_code('https://euthmapperslisbonmeetup.streamlit.app/', '#000000', '#FFFFFF00')
 st.header('💬 Proposed humanitarian projects geocomment!')
 qr_img = generate_qr_code('https://euthmapperslisbonmeetup.streamlit.app/1_%F0%9F%92%AC_Humanitarian_Project_propose', '#000000', '#FFFFFF00')
 st.header('💬 Geocomment result!')
