@@ -22,6 +22,9 @@ st.markdown("""
     body{
         font-size: 18px;
     }
+    title{
+        color:#62cbec;
+    }
 
     [role=radiogroup]{
         gap: 1rem;
