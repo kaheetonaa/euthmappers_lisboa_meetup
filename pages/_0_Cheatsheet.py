@@ -22,15 +22,13 @@ st.markdown("""
     body{
         font-size: 18px;
     }
-    title{
-        color:#62cbec;
-    }
 
     [role=radiogroup]{
         gap: 1rem;
     }
     h1 {
         text-align: center
+        color:#62cbec;
     }
     h2 {
         text-align: center
