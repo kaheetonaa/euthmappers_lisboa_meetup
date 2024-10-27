@@ -37,7 +37,7 @@ st.markdown("""
     }
     
     div[data-testid='stAppViewBlockContainer']{
-        background-color: #62cbec10;
+        background-color: #62cbec50;
     }
             .center {
     display: block;
