@@ -67,4 +67,4 @@ def generate_qr_code(url, fill_color, bg_color):
     img_bytes = img_buffer.getvalue()
     return st.image(img_bytes)
 
-qr_img = generate_qr_code('google.com', '#FF0000', '#FFFFFF')
+qr_img = generate_qr_code('google.com', 'black', '#FFFFFF')
