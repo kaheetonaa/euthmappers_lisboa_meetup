@@ -1,5 +1,6 @@
 import streamlit as st
 import qrcode
+import io
 from PIL import Image
 
 st.set_page_config(layout="wide")
@@ -64,5 +65,6 @@ def generate_qr_code(url, fill_color, bg_color):
     return img
 
 qr_img = generate_qr_code('google.com', '#FF0000', '#FFFFFF')
-
-st.image(qr_img)
+img_buffer = io.BytesIO()
+qr_io=qr_img.save(img_buffer, format="PNG")
+st.image(qr_io)
