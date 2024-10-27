@@ -64,3 +64,5 @@ def generate_qr_code(url, fill_color, bg_color):
     return img
 
 qr_img = generate_qr_code('hello', '#FF0000', '#FFFFFF')
+
+qr_img
