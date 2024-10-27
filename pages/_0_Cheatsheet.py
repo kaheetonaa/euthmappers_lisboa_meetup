@@ -1,4 +1,6 @@
 import streamlit as st
+import qrcode
+from PIL import image
 
 st.set_page_config(layout="wide")
 st.markdown("""
@@ -47,4 +49,17 @@ st.markdown("""
 
 
 st.title('📋EUthMappers Humanitarian report and workshop cheatsheet')
+
+
+def generate_qr_code(url, fill_color, bg_color):
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_H,
+        box_size=10,
+        border=4
+    )
+    qr.add_data(url)
+    qr.make(fit=True)
+    img = qr.make_image(fill_color=fill_color, back_color=bg_color)
+    return img
 
