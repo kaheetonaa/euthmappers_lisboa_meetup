@@ -83,6 +83,6 @@ qr_img = generate_qr_code('https://www.openstreetmap.org/', '#000000', '#FFFFFF0
 st.header('📉 iD sandbox for all app')
 qr_img = generate_qr_code('https://kaheetonaa.github.io/id_sandbox_for_all/', '#000000', '#FFFFFF00')
 st.header('📉 Tasking manager demo project')
-qr_img = generate_qr_code('google.com', '#000000', '#FFFFFF00')
+qr_img = generate_qr_code('https://tasks.hotosm.org/projects/17833', '#000000', '#FFFFFF00')
 st.header('📉 Demo project review')
-qr_img = generate_qr_code('google.com', '#000000', '#FFFFFF00')
+qr_img = generate_qr_code('https://tasks.hotosm.org/projects/17833', '#000000', '#FFFFFF00')
