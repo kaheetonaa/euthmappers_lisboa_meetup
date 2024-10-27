@@ -67,5 +67,5 @@ def generate_qr_code(url, fill_color, bg_color):
     img.save(img_buffer, format="PNG")
     img_bytes = img_buffer.getvalue()
     return st.image(img_bytes)
-st.write('📉 The result of the workshop on 03/10/2024')
+st.header('📉 The result of the workshop on 03/10/2024')
 qr_img = generate_qr_code('google.com', '#62cbec', '#FFFFFF00')
