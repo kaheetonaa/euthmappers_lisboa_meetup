@@ -120,7 +120,7 @@ def drawMap(popup,location,zoom):
 org_str=["None","UN+Mappers", "Missing%20Maps", "M%C3%A9decins%20Sans%20Fronti%C3%A8res%20%28MSF%29%20","USAID","HOT"]
 org_name=["None","UN Mappers", "Missing Maps", "Médecins Sans Frontières","USAID","HOT"]
 org_index = list(range(len(org_name)))
-
+#referencing
 options = st.selectbox(
     "Choose the organization to see their active/archived projects",options=org_index,format_func=lambda x: org_name[x]
 )
@@ -143,7 +143,7 @@ if 'location' not in st.session_state:
     st.session_state.location = [0, 0]
 if 'zoom' not in st.session_state:
     st.session_state.zoom = 5
-
+#map
 a=drawMap(popup,st.session_state.location,st.session_state.zoom)
 #form
 comment = st.text_input("Zoom to an area where you think suitable for the project then write down your comment. Finally hit Enter to submit", "")
