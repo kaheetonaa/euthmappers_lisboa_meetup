@@ -80,12 +80,13 @@ def load_json_from_url(url):
 
 org_str=["None","UN+Mappers", "Missing%20Maps", "M%C3%A9decins%20Sans%20Fronti%C3%A8res%20%28MSF%29%20","USAID","HOT"]
 org_name=["None","UN Mappers", "Missing Maps", "Médecins Sans Frontières","USAID","HOT"]
-#
+org_index = list(range(len(org_name)))
+
 options = st.selectbox(
-    "Choose the organization",options=org_str,format_func=lambda x: org_str[x]
+    "Choose the organization",options=org_index,format_func=lambda x: org_str[x]
     )
-# Example usage:
-url = "https://tasking-manager-tm4-production-api.hotosm.org/api/v2/projects/?orderBy=id&orderByType=ASC&mappingTypesExact=false&page=1&createdByMe=false&mappedByMe=false&favoritedByMe=false&managedByMe=false&basedOnMyInterests=false&omitMapResults=false&downloadAsCSV=false&organisationName="+options
+
+url = "https://tasking-manager-tm4-production-api.hotosm.org/api/v2/projects/?orderBy=id&orderByType=ASC&mappingTypesExact=false&page=1&createdByMe=false&mappedByMe=false&favoritedByMe=false&managedByMe=false&basedOnMyInterests=false&omitMapResults=false&downloadAsCSV=false&organisationName="+org_stre[options]
 archived=st.checkbox('Archived projects')
 if archived:
     url=url+"&projectStatuses=ARCHIVED"
