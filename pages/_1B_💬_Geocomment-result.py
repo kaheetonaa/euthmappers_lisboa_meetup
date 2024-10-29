@@ -79,7 +79,7 @@ for _, r in result_polygon.iterrows():
     # the map might not be displayed
     pol = gpd.GeoSeries(r["Polygon"])#.simplify(tolerance=0.001)
     pol_j = pol.to_json()
-    pol_j = folium.GeoJson(data=pol_j, style_function=lambda x: {"fillColor": "red","fillOpacity":"30%","color":"red"})
+    pol_j = folium.GeoJson(data=pol_j, style_function=lambda x: {"fillColor": "red","fillOpacity":"5%","color":"red"})
     
     poi_j=gpd.GeoSeries(r["Point"]).to_json()
     poi_j= folium.GeoJson(data=poi_j
