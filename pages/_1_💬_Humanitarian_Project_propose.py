@@ -78,34 +78,6 @@ def load_json_from_url(url):
         print(f"Invalid JSON response: {e}")
         raise
 
-org_str=["None","UN+Mappers", "Missing%20Maps", "M%C3%A9decins%20Sans%20Fronti%C3%A8res%20%28MSF%29%20","USAID","HOT"]
-org_name=["None","UN Mappers", "Missing Maps", "Médecins Sans Frontières","USAID","HOT"]
-org_index = list(range(len(org_name)))
-
-options = st.selectbox(
-    "Choose the organization",options=org_index,format_func=lambda x: org_name[x]
-    )
-
-url = "https://tasking-manager-tm4-production-api.hotosm.org/api/v2/projects/?orderBy=id&orderByType=ASC&mappingTypesExact=false&page=1&createdByMe=false&mappedByMe=false&favoritedByMe=false&managedByMe=false&basedOnMyInterests=false&omitMapResults=false&downloadAsCSV=false&organisationName="+org_str[options]
-archived=st.checkbox('Archived projects')
-if archived:
-    url=url+"&projectStatuses=ARCHIVED"
-
-if options!=0:
-    data = load_json_from_url(url)
-    geom_data=data['mapResults']['features']
-    gdf = gpd.GeoDataFrame.from_features(geom_data).set_crs(epsg=4326)
-    gdf['x']=gdf.geometry.x
-    gdf['y']=gdf.geometry.y
-    gdf['dummy']=1
-    gdf['projecId-str']=gdf['projectId'].map(str)
-
-if 'location' not in st.session_state:
-    st.session_state.location = [0, 0]
-if 'zoom' not in st.session_state:
-    st.session_state.zoom = 5
-
-
 def style_function(feature):
     props = feature.get('properties')
     markup = f"""
@@ -149,6 +121,33 @@ if comment and comment!="":
     st.write("✅You select the area at coordinate",str(st.session_state.location),'at the zoom of',str(st.session_state.zoom),'because of', comment)
     post={'bounds':'POLYGON (('+str(st.session_state.bounds['_southWest']['lng'])+' '+str(st.session_state.bounds['_southWest']['lat'])+','+str(st.session_state.bounds['_southWest']['lng'])+' '+str(st.session_state.bounds['_northEast']['lat'])+','+str(st.session_state.bounds['_northEast']['lng'])+' '+str(st.session_state.bounds['_northEast']['lat'])+','+str(st.session_state.bounds['_northEast']['lng'])+' '+str(st.session_state.bounds['_southWest']['lat'])+','+str(st.session_state.bounds['_southWest']['lng'])+' '+str(st.session_state.bounds['_southWest']['lat'])+'))','comment':comment,'center':'POINT ('+str(st.session_state.location[1])+' '+str(st.session_state.location[0])+')','zoom':st.session_state.zoom}
     collection.insert_one(post)
+
+org_str=["None","UN+Mappers", "Missing%20Maps", "M%C3%A9decins%20Sans%20Fronti%C3%A8res%20%28MSF%29%20","USAID","HOT"]
+org_name=["None","UN Mappers", "Missing Maps", "Médecins Sans Frontières","USAID","HOT"]
+org_index = list(range(len(org_name)))
+
+options = st.selectbox(
+    "Choose the organization",options=org_index,format_func=lambda x: org_name[x]
+    )
+
+url = "https://tasking-manager-tm4-production-api.hotosm.org/api/v2/projects/?orderBy=id&orderByType=ASC&mappingTypesExact=false&page=1&createdByMe=false&mappedByMe=false&favoritedByMe=false&managedByMe=false&basedOnMyInterests=false&omitMapResults=false&downloadAsCSV=false&organisationName="+org_str[options]
+archived=st.checkbox('Archived projects')
+if archived:
+    url=url+"&projectStatuses=ARCHIVED"
+
+if options!=0:
+    data = load_json_from_url(url)
+    geom_data=data['mapResults']['features']
+    gdf = gpd.GeoDataFrame.from_features(geom_data).set_crs(epsg=4326)
+    gdf['x']=gdf.geometry.x
+    gdf['y']=gdf.geometry.y
+    gdf['dummy']=1
+    gdf['projecId-str']=gdf['projectId'].map(str)
+
+if 'location' not in st.session_state:
+    st.session_state.location = [0, 0]
+if 'zoom' not in st.session_state:
+    st.session_state.zoom = 5
 
 a=drawMap(popup,st.session_state.location,st.session_state.zoom)
 
