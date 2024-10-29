@@ -86,7 +86,7 @@ options = st.selectbox(
     "Choose the organization",options=org_index,format_func=lambda x: org_str[x]
     )
 
-url = "https://tasking-manager-tm4-production-api.hotosm.org/api/v2/projects/?orderBy=id&orderByType=ASC&mappingTypesExact=false&page=1&createdByMe=false&mappedByMe=false&favoritedByMe=false&managedByMe=false&basedOnMyInterests=false&omitMapResults=false&downloadAsCSV=false&organisationName="+org_stre[options]
+url = "https://tasking-manager-tm4-production-api.hotosm.org/api/v2/projects/?orderBy=id&orderByType=ASC&mappingTypesExact=false&page=1&createdByMe=false&mappedByMe=false&favoritedByMe=false&managedByMe=false&basedOnMyInterests=false&omitMapResults=false&downloadAsCSV=false&organisationName="+org_str[options]
 archived=st.checkbox('Archived projects')
 if archived:
     url=url+"&projectStatuses=ARCHIVED"
