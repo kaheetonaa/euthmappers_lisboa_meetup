@@ -123,7 +123,7 @@ def style_function(feature):
 def drawMap(popup,location,zoom):
     map = folium.Map(
     location=location, zoom_start=zoom, max_zoom=21)
-    if options!="None":
+    if options!=0:
         org_json = folium.GeoJson(data=gdf,
                                 marker=folium.Marker(icon=folium.DivIcon()),
                                 style_function=style_function,
