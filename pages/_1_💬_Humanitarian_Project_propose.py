@@ -83,7 +83,7 @@ org_name=["None","UN Mappers", "Missing Maps", "Médecins Sans Frontières","USA
 org_index = list(range(len(org_name)))
 
 options = st.selectbox(
-    "Choose the organization",options=org_index,format_func=lambda x: org_str[x]
+    "Choose the organization",options=org_index,format_func=lambda x: org_name[x]
     )
 
 url = "https://tasking-manager-tm4-production-api.hotosm.org/api/v2/projects/?orderBy=id&orderByType=ASC&mappingTypesExact=false&page=1&createdByMe=false&mappedByMe=false&favoritedByMe=false&managedByMe=false&basedOnMyInterests=false&omitMapResults=false&downloadAsCSV=false&organisationName="+org_str[options]
