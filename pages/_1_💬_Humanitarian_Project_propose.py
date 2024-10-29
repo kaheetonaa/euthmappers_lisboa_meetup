@@ -82,7 +82,7 @@ org_str=["None","UN+Mappers", "Missing%20Maps", "M%C3%A9decins%20Sans%20Fronti%C
 org_name=["None","UN Mappers", "Missing Maps", "Médecins Sans Frontières","USAID","HOT"]
 #
 options = st.selectbox(
-    "Choose the organization",options=org_str,format_func=lambda x: display[x]
+    "Choose the organization",options=org_str,format_func=lambda x: org_str[x]
     )
 # Example usage:
 url = "https://tasking-manager-tm4-production-api.hotosm.org/api/v2/projects/?orderBy=id&orderByType=ASC&mappingTypesExact=false&page=1&createdByMe=false&mappedByMe=false&favoritedByMe=false&managedByMe=false&basedOnMyInterests=false&omitMapResults=false&downloadAsCSV=false&organisationName="+options
