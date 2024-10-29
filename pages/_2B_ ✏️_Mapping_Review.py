@@ -60,23 +60,23 @@ START_ZOOM = 18
 features = gpd.GeoDataFrame.from_features(osm_data).set_crs(epsg=4326)
 
 building=features[features.geometry.type=='MultiPolygon'][features.building.notnull()]
-highway=features[features.geometry.type=='LineString'][features.highway.notnull()]
+#highway=features[features.geometry.type=='LineString'][features.highway.notnull()]
 
 building_style = {"fillColor": "red", "fillOpacity": 0.2,"color":"red"}
-highway_style = {"color":"white","weight":5}
+#highway_style = {"color":"white","weight":5}
 
 building_popup = GeoJsonPopup(
     fields=list(building.columns)[1:],
 
 )
 
-highway_popup = GeoJsonPopup(
-    fields=list(highway.columns)[1:],
+#highway_popup = GeoJsonPopup(
+#    fields=list(highway.columns)[1:],
 
-)
+#)
 
 building_json = folium.GeoJson(data=building, style_function=lambda _x: building_style,popup=building_popup)
-highway_json = folium.GeoJson(data=highway, style_function=lambda _x: highway_style,popup=highway_popup)
+#highway_json = folium.GeoJson(data=highway, style_function=lambda _x: highway_style,popup=highway_popup)
 
 map = folium.Map(
     location=START_LOCATION, zoom_start=START_ZOOM, max_zoom=21
