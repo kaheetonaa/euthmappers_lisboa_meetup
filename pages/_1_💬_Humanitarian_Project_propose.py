@@ -122,6 +122,8 @@ if comment and comment!="":
     post={'bounds':'POLYGON (('+str(st.session_state.bounds['_southWest']['lng'])+' '+str(st.session_state.bounds['_southWest']['lat'])+','+str(st.session_state.bounds['_southWest']['lng'])+' '+str(st.session_state.bounds['_northEast']['lat'])+','+str(st.session_state.bounds['_northEast']['lng'])+' '+str(st.session_state.bounds['_northEast']['lat'])+','+str(st.session_state.bounds['_northEast']['lng'])+' '+str(st.session_state.bounds['_southWest']['lat'])+','+str(st.session_state.bounds['_southWest']['lng'])+' '+str(st.session_state.bounds['_southWest']['lat'])+'))','comment':comment,'center':'POINT ('+str(st.session_state.location[1])+' '+str(st.session_state.location[0])+')','zoom':st.session_state.zoom}
     collection.insert_one(post)
 
+a=drawMap(popup,st.session_state.location,st.session_state.zoom)
+
 org_str=["None","UN+Mappers", "Missing%20Maps", "M%C3%A9decins%20Sans%20Fronti%C3%A8res%20%28MSF%29%20","USAID","HOT"]
 org_name=["None","UN Mappers", "Missing Maps", "Médecins Sans Frontières","USAID","HOT"]
 org_index = list(range(len(org_name)))
@@ -148,8 +150,6 @@ if 'location' not in st.session_state:
     st.session_state.location = [0, 0]
 if 'zoom' not in st.session_state:
     st.session_state.zoom = 5
-
-a=drawMap(popup,st.session_state.location,st.session_state.zoom)
 
 
 
