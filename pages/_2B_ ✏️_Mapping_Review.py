@@ -82,7 +82,7 @@ map = folium.Map(
     location=START_LOCATION, zoom_start=START_ZOOM, max_zoom=21
 )
 
-folium.TileLayer(name='ESRI',tiles='https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?blankTile=false',attr='esri',max_zoom=21,max_native_zoom=18,opacity=1).add_to(map)
+folium.TileLayer(name='ESRI',tiles='https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?blankTile=false',attr='esri',max_zoom=18,max_native_zoom=18,opacity=1).add_to(map)
 
 
 lc=folium.LayerControl().add_to(map)
