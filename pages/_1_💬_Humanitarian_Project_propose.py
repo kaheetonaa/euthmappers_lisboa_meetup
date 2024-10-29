@@ -115,7 +115,7 @@ def drawMap(popup,location,zoom):
         link="https://tasks.hotosm.org/projects/"+st.session_state.last_object_clicked_popup
         st.link_button("Go to project", str(link).replace('\n', '').replace(' ','').replace('projecId-str',''))
     else:
-        st.write('nothing is clicked')
+        st.write('No project has been selected')
 
 org_str=["None","UN+Mappers", "Missing%20Maps", "M%C3%A9decins%20Sans%20Fronti%C3%A8res%20%28MSF%29%20","USAID","HOT"]
 org_name=["None","UN Mappers", "Missing Maps", "Médecins Sans Frontières","USAID","HOT"]
