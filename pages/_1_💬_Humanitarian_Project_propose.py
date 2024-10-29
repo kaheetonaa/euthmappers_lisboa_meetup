@@ -91,7 +91,7 @@ archived=st.checkbox('Archived projects')
 if archived:
     url=url+"&projectStatuses=ARCHIVED"
 
-if options!="None":
+if options!=0:
     data = load_json_from_url(url)
     geom_data=data['mapResults']['features']
     gdf = gpd.GeoDataFrame.from_features(geom_data).set_crs(epsg=4326)
