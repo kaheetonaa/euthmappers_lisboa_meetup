@@ -52,7 +52,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-osm_data= osmium.FileProcessor("https://api06.dev.openstreetmap.org/api/0.6/map?bbox=105.85475%2C20.98985%2C105.86246%2C21.00602&include_discussion=true").with_areas().with_filter(osmium.filter.GeoInterfaceFilter())
+osm_data= osmium.FileProcessor("https://www.openstreetmap.org/api/0.6/map?bbox=32.59807%2C-20.21372%2C32.64716%2C-20.16812").with_areas().with_filter(osmium.filter.GeoInterfaceFilter())
 
 START_LOCATION = [20.99174, 105.85906]
 START_ZOOM = 18
