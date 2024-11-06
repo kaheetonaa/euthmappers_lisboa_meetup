@@ -99,7 +99,7 @@ qr_img = generate_qr_code('https://euthmapperslisbonmeetup.streamlit.app/1B_%F0%
 st.header('🌍 Openstreetmap main page')
 qr_img = generate_qr_code('https://www.openstreetmap.org/', '#000000', '#FFFFFF00')
 st.header('🌍 Openstreetmap sandbox for editing main page')
-qr_img = generate_qr_code('https://www.openstreetmap.org/', '#000000', '#FFFFFF00')
+qr_img = generate_qr_code('https://www.api06.dev.openstreetmap.org/', '#000000', '#FFFFFF00')
 #st.text("")
 #st.text("")
 #st.text("")
